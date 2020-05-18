@@ -26,3 +26,4 @@ while cipher_pick != 1 or 2:
         break
     else:
         print("Not 1 and or 2")
+print(caesar_cipher_encrypt(plain_text, shift))
