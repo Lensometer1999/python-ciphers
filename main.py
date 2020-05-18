@@ -1,7 +1,7 @@
 from pip._vendor.distlib.compat import raw_input
 
-
-def caesar_cipher_encrypt(plain_text, shift):
+#funciton still does not work properly
+def caesar_cipher_encrypt(plain_text_, shift_):
     encrypted_text = ""
     plain_text.lower()
     for i in range(len(plain_text)):
@@ -14,10 +14,14 @@ def caesar_cipher_encrypt(plain_text, shift):
 print("This is a program to make ciphers, you two choices are BLANK and BLANK")
 cipher_pick = int(input("Pick your cipher type in 1 for Caesar Cipher, type in 2 for BLANK: "))
 
+shift = 0
+plain_text = ""
+
 while cipher_pick != 1 or 2:
     if cipher_pick == 1:
         plain_text = raw_input("\nYou have chosen " + str(cipher_pick) +
                                " which means Caesar Cipher, Type in your plain text: ")
+        shift = int(input("How letters to shift: "))
         break
     elif cipher_pick == 2:
         plain_text = raw_input("\nYou have chosen " + str(cipher_pick) +
