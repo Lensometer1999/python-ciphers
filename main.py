@@ -11,7 +11,18 @@ def caesar_cipher_encrypt(plain_text, shift):
             encrypted_text += chr((ord(char) + shift - 97) % 26 + 97)
         else:
             encrypted_text += chr(32)
-    return print(encrypted_text)
+    return encrypted_text
+
+
+def caesar_cipher_decrypt(cipher_text, shift):
+    decrypted_text = ""
+    for i in range(len(cipher_text)):
+        char = cipher_text[i]
+        if char != chr(32):
+            decrypted_text += chr((ord(char) - shift - 97) % 26 + 97)
+        else:
+            decrypted_text += chr(32)
+    return decrypted_text
 
 
 print("This is a program to make ciphers, you two choices are BLANK and BLANK")
@@ -33,4 +44,5 @@ while cipher_pick != 1 or 2:
         break
     else:
         print("Not 1 and or 2")
-caesar_cipher_encrypt(text, num)
+print(caesar_cipher_encrypt(text, num))
+print(caesar_cipher_decrypt(caesar_cipher_encrypt(text, num), num))
