@@ -32,8 +32,8 @@ def caesar_cipher_decrypt(cipher_text, shift):
     return decrypted_text
 
 
-print("This is a program to make ciphers, you two choices are BLANK and BLANK")
-cipher_pick = int(input("Pick your cipher type in 1 for Caesar Cipher, type in 2 for BLANK: "))
+print("This is a program to make ciphers, you two choices are Caesar Cipher and Substitution Cipher")
+cipher_pick = int(input("Pick your cipher type in 1 for Caesar Cipher, type in 2 for Substitution Cipher: "))
 
 num = 0
 text = ""
@@ -43,13 +43,21 @@ while cipher_pick != 1 or 2:
         text = raw_input("\nYou have chosen " + str(cipher_pick) +
                          " which means Caesar Cipher, Type in your plain text: ")
         num = int(input("How many letters do you want to shift: "))
+        print(caesar_cipher_encrypt(text, num))
+        print(caesar_cipher_decrypt(caesar_cipher_encrypt(text, num), num))
         break
     elif cipher_pick == 2:
         text = raw_input("\nYou have chosen " + str(cipher_pick) +
-                         " which means BLANK, Type in your plain text: ")
-
+                         " which means Substitution Cipher, Type in your plain text: ")
+        alphabet = "abcdefghijklmnopqrstuvwxyz"
+        associations = dict(zip(alphabet, [None]*len(alphabet)))
+        print("Enter the association for each letter:")
+        for letter in alphabet:
+            in_ = ""
+            while len(in_) != 1 or in_ not in alphabet:
+                in_ = input(letter + ": ")
+            associations[letter] = in_
+        print(substitution_cipher_encrypt(text, associations))
         break
     else:
         print("Not 1 and or 2")
-print(caesar_cipher_encrypt(text, num))
-print(caesar_cipher_decrypt(caesar_cipher_encrypt(text, num), num))
