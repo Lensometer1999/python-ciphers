@@ -1,5 +1,12 @@
 from pip._vendor.distlib.compat import raw_input
 
+def substitution_cipher_encrypt(plain_text, associations):
+    out = ""
+    plain_text = plain_text.lower()
+    for letter in plain_text:
+        if letter in associations:
+            out += associations[letter]
+    return out
 
 # funciton for caesar cipher
 def caesar_cipher_encrypt(plain_text, shift):
